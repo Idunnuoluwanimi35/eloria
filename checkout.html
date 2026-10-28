@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#100b18" />
+  <meta name="description" content="Review your House of Eloria demo order." />
+  <title>Checkout — House of Eloria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="visit.js" defer></script>
+  <script src="checkout.js" defer></script>
+</head>
+
+<body class="checkout-page dark-mode">
+  <header class="checkout-header">
+    <a class="brand" href="index.html" aria-label="House of Eloria home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1V10Z" />
+          <path d="M3 10 12 3l9 7" />
+        </svg>
+      </span>
+      <span class="brand-name">House of <span class="brand-light">Eloria</span></span>
+    </a>
+    <div class="checkout-secure"><svg viewBox="0 0 24 24">
+        <rect x="5" y="10" width="14" height="11" rx="2" />
+        <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+      </svg> Secure checkout</div>
+  </header>
+
+  <main class="checkout-main" id="checkout-main">
+    <a class="back-to-store" href="index.html"><span aria-hidden="true">←</span> Back to shopping</a>
+    <div class="checkout-title">
+      <div>
+        <p class="checkout-kicker">Almost yours</p>
+        <h1>Checkout</h1>
+      </div>
+      <span class="checkout-step"><b>1</b> Delivery details <span>—</span> <b class="step-muted">2</b> Review</span>
+    </div>
+    <div class="demo-notice" role="note">
+      <strong>Demo checkout</strong>
+      <span>This frontend-only example does not collect payment or send your order to a store. Your order is saved only
+        in this browser.</span>
+    </div>
+
+    <div class="checkout-layout">
+      <section class="checkout-form-card">
+        <h2>Delivery information</h2>
+        <p class="form-intro">Where should we send your order?</p>
+        <form id="checkout-form" novalidate>
+          <div class="checkout-fields">
+            <div class="checkout-field full-field">
+              <label for="customer-name">Full name <span>*</span></label>
+              <input id="customer-name" name="name" autocomplete="name" required maxlength="80" />
+              <small class="field-error" id="customer-name-error"></small>
+            </div>
+            <div class="checkout-field">
+              <label for="customer-email">Email address <span>*</span></label>
+              <input id="customer-email" name="email" type="email" autocomplete="email" required maxlength="120" />
+              <small class="field-error" id="customer-email-error"></small>
+            </div>
+            <div class="checkout-field">
+              <label for="customer-phone">Phone number <span>*</span></label>
+              <input id="customer-phone" name="phone" type="tel" autocomplete="tel" required maxlength="24" />
+              <small class="field-error" id="customer-phone-error"></small>
+            </div>
+            <div class="checkout-field full-field">
+              <label for="customer-address">Street address <span>*</span></label>
+              <input id="customer-address" name="address" autocomplete="street-address" required maxlength="160" />
+              <small class="field-error" id="customer-address-error"></small>
+            </div>
+            <div class="checkout-field">
+              <label for="customer-city">City / town <span>*</span></label>
+              <input id="customer-city" name="city" autocomplete="address-level2" required maxlength="80" />
+              <small class="field-error" id="customer-city-error"></small>
+            </div>
+            <div class="checkout-field">
+              <label for="customer-region">State / region <span>*</span></label>
+              <input id="customer-region" name="region" autocomplete="address-level1" required maxlength="80" />
+              <small class="field-error" id="customer-region-error"></small>
+            </div>
+            <div class="checkout-field full-field">
+              <label for="customer-instructions">Delivery instructions <span class="optional">(optional)</span></label>
+              <textarea id="customer-instructions" name="instructions" rows="3" maxlength="250"
+                placeholder="Anything we should know?"></textarea>
+              <small class="field-error" id="customer-instructions-error"></small>
+            </div>
+          </div>
+          <p class="checkout-error" id="checkout-error" role="alert"></p>
+          <button class="place-order-button" type="submit" id="place-order-button">
+            <span>Place demo order</span><span aria-hidden="true">→</span>
+          </button>
+          <p class="checkout-privacy">Your details stay on this device and are used only to preview checkout.</p>
+        </form>
+        <div class="checkout-empty-message" id="checkout-empty-message" hidden>
+          <p>Your cart is empty. Add a few favorites before checkout.</p>
+          <a href="index.html#products">Browse products <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <aside class="order-summary-card" aria-label="Order summary">
+        <h2>Your order <span id="summary-count">(0 items)</span></h2>
+        <div class="checkout-items" id="checkout-items"></div>
+        <div class="checkout-summary-totals">
+          <div><span>Subtotal</span><strong id="checkout-subtotal">$0.00</strong></div>
+          <div class="summary-discount"><span>Discount</span><strong id="checkout-discount">-$0.00</strong></div>
+          <div><span>Shipping</span><strong class="summary-shipping" id="checkout-shipping">Free</strong></div>
+          <div class="summary-total"><span>Total</span><strong id="checkout-total">$0.00</strong></div>
+        </div>
+        <div class="demo-payment-note"><span aria-hidden="true">ⓘ</span><span>Payment is <strong>not collected</strong>
+            in this demo.</span></div>
+      </aside>
+    </div>
+  </main>
+  <footer class="checkout-footer">© 2026 House of Eloria · A frontend-only demo, not a live store</footer>
+  <div class="toast" id="checkout-toast" role="status" aria-live="polite"></div>
+</body>
+
+</html>

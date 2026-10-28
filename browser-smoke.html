@@ -1,0 +1,108 @@
+<!doctype html>
+<meta charset="utf-8">
+<pre id="result">running</pre>
+<iframe id="app" style="height:90vh"></iframe>
+<script>
+const frame = document.querySelector("#app");
+frame.style.width = `${Number(new URLSearchParams(location.search).get("width")) || 390}px`;
+const results = {};
+const categoryRoutes = ["Fashion", "Beauty", "Electronics", "Home & Living", "Sports", "All"];
+const categoryCounts = {};
+let categoryIndex = -1;
+let catalogCartTested = false;
+const record = (key, value) => results[key] = value;
+const output = () => document.querySelector("#result").textContent = JSON.stringify(results);
+
+frame.addEventListener("load", () => {
+  setTimeout(() => {
+    const doc = frame.contentDocument;
+    const path = frame.contentWindow.location.pathname;
+    if (frame.contentWindow.location.pathname.endsWith("checkout.html")) {
+      record("checkoutPageWidth", doc.documentElement.clientWidth);
+      record("checkoutScrollWidth", doc.body.scrollWidth);
+      record("checkoutRows", doc.querySelectorAll(".checkout-item").length);
+      record("checkoutTotal", doc.querySelector("#checkout-total").textContent);
+      doc.querySelector("#checkout-form").dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+      record("validationMessage", doc.querySelector("#customer-name-error").textContent);
+      for (const [name, value] of Object.entries({
+        name: "Alex Shopper",
+        email: "not-an-email",
+        phone: "555-010-2345",
+        address: "123 Market Street",
+        city: "Portland",
+        region: "Oregon",
+      })) {
+        doc.querySelector(`[name="${name}"]`).value = value;
+      }
+      doc.querySelector("#checkout-form").dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+      record("emailValidationMessage", doc.querySelector("#customer-email-error").textContent);
+      doc.querySelector('[name="email"]').value = "alex@example.com";
+      doc.querySelector("#checkout-form").dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+      setTimeout(() => {
+        record("confirmation", doc.querySelector(".order-confirmation h1")?.textContent ?? "missing");
+        record("orderReference", doc.querySelector(".confirmation-reference")?.textContent ?? "missing");
+        record("cartClearedAfterOrder", frame.contentWindow.localStorage.getItem("novashop-cart-v1") === null);
+        record("customerDetailsNotStored", !("customer" in JSON.parse(frame.contentWindow.localStorage.getItem("novashop-last-demo-order-v1"))));
+        output();
+      }, 750);
+      return;
+    }
+
+    if (path.endsWith("catalog.html")) {
+      const currentCategory = new URLSearchParams(frame.contentWindow.location.search).get("category") ?? "All";
+      const productCount = doc.querySelectorAll(".catalog-product-card").length;
+      categoryCounts[currentCategory] = productCount;
+      if (currentCategory === "Fashion" && !catalogCartTested) {
+        const addButton = doc.querySelector(".catalog-add-button:not(:disabled)");
+        if (addButton) {
+          const productId = addButton.dataset.addProduct;
+          addButton.click();
+          const storedCart = JSON.parse(frame.contentWindow.localStorage.getItem("novashop-cart-v1") ?? "{}");
+          const checkoutLines = JSON.parse(frame.contentWindow.localStorage.getItem("novashop-checkout-lines-v1") ?? "[]");
+          record("catalogAddToCart", storedCart[productId] > 0 && checkoutLines.some((item) => item.id === productId));
+        } else {
+          record("catalogAddToCart", false);
+        }
+        catalogCartTested = true;
+      }
+
+      categoryIndex += 1;
+      if (categoryIndex < categoryRoutes.length) {
+        frame.contentWindow.location.href = `catalog.html?category=${encodeURIComponent(categoryRoutes[categoryIndex])}`;
+        return;
+      }
+      record("categoryCounts", categoryCounts);
+      frame.contentWindow.location.href = "index.html";
+      return;
+    }
+
+    record("viewportWidth", frame.contentWindow.innerWidth);
+    record("pageWidth", doc.documentElement.clientWidth);
+    record("pageScrollWidth", doc.body.scrollWidth);
+    record("cartRailVisible", frame.contentWindow.getComputedStyle(doc.querySelector(".right-rail")).display !== "none");
+    record("mobileCartVisible", frame.contentWindow.getComputedStyle(doc.querySelector(".mobile-cart-button")).display !== "none");
+    record("productCount", doc.querySelectorAll(".product-card").length);
+    if (categoryIndex < 0) {
+      categoryIndex = 0;
+      doc.querySelector('.category-item[data-category="Fashion"]').click();
+      return;
+    }
+    doc.querySelector('[data-details="air-max"]').click();
+    record("productDetails", doc.querySelector("#product-dialog").open);
+    doc.querySelector("#product-dialog").close();
+    doc.querySelector('[data-add="apple-watch"]').click();
+    for (let index = 0; index < 7; index += 1) doc.querySelector('[data-add="apple-watch"]').click();
+    const watchQuantity = () => Number(doc.querySelector('[data-quantity="apple-watch"]').nextElementSibling.textContent);
+    record("quantityAtStockLimit", watchQuantity());
+    doc.querySelector('[data-add="apple-watch"]').click();
+    record("stockLimitBlocksExtraAdd", watchQuantity() === 8);
+    record("cartAfterAdd", doc.querySelector("#cart-count").textContent);
+    doc.querySelector("#coupon-code").value = "NOVA10";
+    doc.querySelector("#coupon-form").dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+    record("couponDiscount", doc.querySelector("#discount").textContent);
+    doc.querySelector("#checkout-button").click();
+    output();
+  }, 700);
+});
+frame.src = "index.html";
+</script>

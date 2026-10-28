@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#100b18" />
+    <meta name="description" content="Review demo orders placed with House of Eloria." />
+    <title>My Orders — House of Eloria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="orders.js" defer></script>
+  </head>
+  <body class="dark-mode orders-page">
+    <div class="orders-shell">
+      <header class="account-topbar">
+        <a class="brand" href="index.html" aria-label="House of Eloria home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1V10Z" /><path d="M3 10 12 3l9 7" /></svg>
+          </span>
+          <span class="brand-name">House of <span class="brand-light">Eloria</span></span>
+        </a>
+        <a class="account-back-link" href="index.html">← Back to the store</a>
+      </header>
+      <main class="orders-main">
+        <a class="account-back-link orders-back" href="index.html">← Continue shopping</a>
+        <div class="orders-heading">
+          <div>
+            <span class="settings-kicker">Your shopping history</span>
+            <h1>My Orders</h1>
+            <p>Review demo checkout records saved on this browser.</p>
+          </div>
+          <span class="orders-count" id="orders-count">0 orders</span>
+        </div>
+        <p class="orders-notice">These are local demo records only. Orders are not sent to a store and no payment is collected.</p>
+        <p class="orders-message" id="orders-message" role="status" aria-live="polite" hidden></p>
+        <section class="orders-list" id="orders-list" aria-label="Checkout records"></section>
+      </main>
+      <footer class="account-footer">House of Eloria · A local storefront demo</footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#100b18" />
+    <meta
+      name="description"
+      content="House of Eloria — thoughtful finds for your everyday."
+    />
+    <title>House of Eloria — Find Your Style</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="visit.js" defer></script>
+    <script src="catalog-data.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body class="dark-mode">
+    <div class="app-shell">
+      <dialog class="sidebar-dialog" id="sidebar-dialog" aria-labelledby="sidebar-title">
+      <aside class="sidebar" id="primary-sidebar">
+        <a class="brand" href="#" aria-label="House of Eloria home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1V10Z" /><path d="M3 10 12 3l9 7" /></svg>
+          </span>
+          <span class="brand-name">House of <span class="brand-light">Eloria</span></span>
+        </a>
+        <button class="sidebar-close" type="button" aria-label="Close navigation">×</button>
+        <h2 class="visually-hidden" id="sidebar-title">House of Eloria navigation</h2>
+
+        <nav class="main-nav">
+          <a class="nav-link active" href="#home">
+            <svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1V10Z" /></svg>
+            <span>Home</span>
+          </a>
+          <a class="nav-link" href="#categories" data-category="All">
+            <svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1" /><rect x="14" y="4" width="6" height="6" rx="1" /><rect x="4" y="14" width="6" height="6" rx="1" /><rect x="14" y="14" width="6" height="6" rx="1" /></svg>
+            <span>Categories</span>
+          </a>
+          <a class="nav-link" href="#deals">
+            <svg viewBox="0 0 24 24"><path d="m20 13-7 7-10-10V4h6l11 9Z" /><circle cx="7.5" cy="7.5" r="1" /></svg>
+            <span>Deals</span><span class="nav-badge">Hot</span>
+          </a>
+          <a class="nav-link" href="#products">
+            <svg viewBox="0 0 24 24"><path d="M5 9h14l1 11H4L5 9Z" /><path d="M9 9V6a3 3 0 0 1 6 0v3" /></svg>
+            <span>New Arrivals</span>
+          </a>
+          <a class="nav-link" href="#products">
+            <svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3Z" /></svg>
+            <span>Best Sellers</span>
+          </a>
+          <a class="nav-link" href="coming-soon.html?feature=Brands">
+            <svg viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z" /><path d="m3 12 9 5 9-5M3 16l9 5 9-5" /></svg>
+            <span>Brands</span>
+          </a>
+          <a class="nav-link" href="coming-soon.html?feature=Collections">
+            <svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2" /><path d="M9 4V2h6v2M9 9h6M9 13h6M9 17h3" /></svg>
+            <span>Collections</span>
+          </a>
+
+          <div class="nav-divider"></div>
+          <a class="nav-link" href="orders.html">
+            <svg viewBox="0 0 24 24"><path d="M5 4h14v16l-3.5-2-3.5 2-3.5-2L5 20V4Z" /><path d="M9 9h6M9 13h6" /></svg>
+            <span>My Orders</span>
+          </a>
+          <a class="nav-link" href="coming-soon.html?feature=Wishlist">
+            <svg viewBox="0 0 24 24"><path d="M20.8 8.6c0 4.5-8.8 10-8.8 10s-8.8-5.5-8.8-10a4.6 4.6 0 0 1 8.8-1.8 4.6 4.6 0 0 1 8.8 1.8Z" /></svg>
+            <span>Wishlist</span>
+          </a>
+          <a class="nav-link" href="coming-soon.html?feature=Coupons">
+            <svg viewBox="0 0 24 24"><path d="M4 7a2 2 0 0 0 0 4v2a2 2 0 0 0 0 4h16a2 2 0 0 0 0-4v-2a2 2 0 0 0 0-4H4Z" /><path d="M13 8v1m0 3v1m0 3v1" /></svg>
+            <span>Coupons</span>
+          </a>
+          <a class="nav-link" href="coming-soon.html?feature=Addresses">
+            <svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></svg>
+            <span>Addresses</span>
+          </a>
+          <button class="nav-link settings-open-button" type="button" aria-haspopup="dialog">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3" /><path d="M5 20a7 7 0 0 1 14 0M19 4v4m-2-2h4" /></svg>
+            <span>App Settings</span>
+          </button>
+        </nav>
+
+        <a class="summer-card" href="#deals">
+          <span class="summer-kicker">Special Offer</span>
+          <strong>Summer Sale</strong>
+          <span>Up to 50% Off</span>
+          <span class="summer-cta">Shop Now <span aria-hidden="true">→</span></span>
+          <span class="sale-art" aria-hidden="true">%</span>
+        </a>
+
+        <div class="sidebar-bottom">
+          <a class="help-link" href="#home">
+            <svg viewBox="0 0 24 24"><path d="M4 14v-3a8 8 0 0 1 16 0v3" /><path d="M4 14h3v6H6a2 2 0 0 1-2-2v-4Zm16 0h-3v6h1a2 2 0 0 0 2-2v-4ZM9 20h6" /></svg>
+            <span><strong>Store Demo</strong><small>Sample catalog &amp; checkout</small></span>
+          </a>
+          <button class="theme-button" type="button" aria-label="Toggle color theme" aria-pressed="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" /></svg>
+            <span>Light Mode</span><span class="theme-chevron">›</span>
+          </button>
+        </div>
+      </aside>
+      </dialog>
+
+      <main class="main-content" id="home">
+        <header class="topbar">
+          <button class="sidebar-toggle" type="button" aria-label="Open navigation" aria-haspopup="dialog" aria-controls="sidebar-dialog" aria-expanded="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+          </button>
+          <label class="search-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg>
+            <input id="search-input" type="search" placeholder="Search for products, brands and more..." aria-label="Search products" />
+            <kbd>⌘ K</kbd>
+          </label>
+          <span class="visually-hidden" id="search-status" role="status" aria-live="polite"></span>
+          <div class="top-actions">
+            <button class="icon-action wishlist-action" type="button" aria-label="Wishlist">
+              <svg viewBox="0 0 24 24"><path d="M20.8 8.6c0 4.5-8.8 10-8.8 10s-8.8-5.5-8.8-10a4.6 4.6 0 0 1 8.8-1.8 4.6 4.6 0 0 1 8.8 1.8Z" /></svg>
+              <span>Wishlist</span>
+            </button>
+            <button class="icon-action notification-action" type="button" aria-label="Notifications">
+              <svg viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-8 12a2 2 0 0 0 4 0" /></svg>
+              <span class="notification-dot">3</span>
+            </button>
+            <button class="icon-action settings-open-button" type="button" aria-label="Open app settings" aria-haspopup="dialog">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="m19.4 15 .1.1a1.7 1.7 0 0 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 0 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 0 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 0 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 0 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V2a1.7 1.7 0 0 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 0 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 0 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2 2.9Z" /></svg>
+            </button>
+            <button class="icon-action cart-open-action" type="button" aria-label="My cart, 0 items" aria-haspopup="dialog" aria-controls="cart-dialog">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l1 13H4L5 8Z" /><path d="M9 9V6a3 3 0 0 1 6 0v3" /></svg>
+              <span>My cart</span><strong class="cart-count-badge" id="header-cart-count">0</strong>
+            </button>
+            <div class="account-actions" id="account-actions">
+              <a href="account.html?mode=signin">Sign In</a>
+              <span aria-hidden="true">/</span>
+              <a href="account.html?mode=signup">Sign Up</a>
+            </div>
+            <a class="profile-button" id="profile-button" href="account.html" aria-label="Your profile" hidden>
+              <img src="images/profile.jpg" alt="" />
+              <span id="profile-name"></span>
+            </a>
+            <a class="signout-link" id="signout-link" href="account.html?mode=signout" hidden>Sign Out</a>
+          </div>
+        </header>
+
+        <section class="hero-banner" aria-label="Featured collections" aria-roledescription="carousel">
+          <article class="hero-slide is-active" data-slide="0" data-design="nocturne" aria-hidden="false">
+            <img class="hero-image" src="images/hero-model.jpg" alt="A fashion model wearing a statement seasonal look" />
+            <div class="hero-copy"><span class="eyebrow">01 · The Eloria Edit</span><h1>Find Your Style,<br />Love Your Look <span>✦</span></h1><p>Thoughtful pieces for a beautifully<br class="desktop-break" /> individual wardrobe.</p><a class="hero-button" href="#products">Explore the edit <span aria-hidden="true">→</span></a></div>
+          </article>
+          <article class="hero-slide" data-slide="1" data-design="velvet" aria-hidden="true" inert>
+            <img class="hero-image" src="images/product-bag.jpg" alt="Sculptural shoulder bag in a rich, warm neutral" />
+            <div class="hero-copy"><span class="eyebrow">02 · The finishing touch</span><h1>Carry a Little<br />Wonder <span>✦</span></h1><p>Polished shapes. Unexpected details.<br class="desktop-break" /> Everyday pieces, elevated.</p><a class="hero-button" href="#products">Discover accessories <span aria-hidden="true">→</span></a></div>
+          </article>
+          <article class="hero-slide" data-slide="2" data-design="bloom" aria-hidden="true" inert>
+            <img class="hero-image" src="images/product-perfume.jpg" alt="Elegant perfume bottle with a soft blush finish" />
+            <div class="hero-copy"><span class="eyebrow">03 · A softer ritual</span><h1>Make Room<br />for Beauty <span>✦</span></h1><p>Little luxuries for the moments<br class="desktop-break" /> that belong only to you.</p><a class="hero-button" href="#products">Shop beauty <span aria-hidden="true">→</span></a></div>
+          </article>
+          <article class="hero-slide" data-slide="3" data-design="atelier" aria-hidden="true" inert>
+            <img class="hero-image" src="images/product-sneaker.jpg" alt="Modern white sneaker styled for a comfortable city day" />
+            <div class="hero-copy"><span class="eyebrow">04 · Made to move</span><h1>Your Next<br />Great Escape <span>✦</span></h1><p>Easy comfort for the long way<br class="desktop-break" /> home and everywhere after.</p><a class="hero-button" href="#products">Find your fit <span aria-hidden="true">→</span></a></div>
+          </article>
+          <article class="hero-slide" data-slide="4" data-design="afterglow" aria-hidden="true" inert>
+            <img class="hero-image" src="images/product-watch.jpg" alt="A refined everyday watch with a dark polished finish" />
+            <div class="hero-copy"><span class="eyebrow">05 · Time, well spent</span><h1>Details Worth<br />Keeping <span>✦</span></h1><p>Considered technology meets<br class="desktop-break" /> timeless personal style.</p><a class="hero-button" href="#products">Discover the details <span aria-hidden="true">→</span></a></div>
+          </article>
+          <article class="hero-slide" data-slide="5" data-design="terrace" aria-hidden="true" inert>
+            <img class="hero-image" src="images/product-shirt.jpg" alt="A relaxed cotton shirt in a soft, versatile shade" />
+            <div class="hero-copy"><span class="eyebrow">06 · The everyday, reimagined</span><h1>Wear What<br />Feels Like You <span>✦</span></h1><p>Soft layers and lasting favorites<br class="desktop-break" /> for your own kind of day.</p><a class="hero-button" href="#products">Find your favorites <span aria-hidden="true">→</span></a></div>
+          </article>
+          <div class="hero-controls" aria-label="Slideshow controls">
+            <button class="hero-control hero-previous" type="button" aria-label="Previous slide">‹</button>
+            <div class="hero-dots" aria-label="Choose a featured slide">
+              <button type="button" class="selected" data-slide-to="0" aria-label="Show slide 1 of 6" aria-pressed="true"></button>
+              <button type="button" data-slide-to="1" aria-label="Show slide 2 of 6" aria-pressed="false"></button>
+              <button type="button" data-slide-to="2" aria-label="Show slide 3 of 6" aria-pressed="false"></button>
+              <button type="button" data-slide-to="3" aria-label="Show slide 4 of 6" aria-pressed="false"></button>
+              <button type="button" data-slide-to="4" aria-label="Show slide 5 of 6" aria-pressed="false"></button>
+              <button type="button" data-slide-to="5" aria-label="Show slide 6 of 6" aria-pressed="false"></button>
+            </div>
+            <button class="hero-control hero-next" type="button" aria-label="Next slide">›</button>
+          </div>
+          <button class="hero-pause" type="button" aria-label="Pause slideshow" aria-pressed="false">Ⅱ</button>
+        </section>
+
+        <section class="category-strip" id="categories" aria-label="Shop by category">
+          <a class="category-item" href="catalog.html?category=Fashion" data-category="Fashion">
+            <span class="category-icon fashion-icon"><svg viewBox="0 0 24 24"><path d="m8 4 4 2 4-2 4 3-2 4-2-1v10H8V10l-2 1-2-4 4-3Z" /></svg></span>
+            <span>Fashion</span>
+          </a>
+          <a class="category-item" href="catalog.html?category=Beauty" data-category="Beauty">
+            <span class="category-icon beauty-icon"><svg viewBox="0 0 24 24"><path d="M10 3h4v4l2 2v11H8V9l2-2V3Z" /><path d="M8 12h8" /></svg></span>
+            <span>Beauty</span>
+          </a>
+          <a class="category-item" href="catalog.html?category=Electronics" data-category="Electronics">
+            <span class="category-icon tech-icon"><svg viewBox="0 0 24 24"><path d="M4 13v-2a8 8 0 0 1 16 0v2m-16 0v4h4v-7H4m16 3v4h-4v-7h4" /></svg></span>
+            <span>Electronics</span>
+          </a>
+          <a class="category-item" href="catalog.html?category=Home%20%26%20Living" data-category="Home & Living">
+            <span class="category-icon home-icon"><svg viewBox="0 0 24 24"><path d="M5 11h14v7H5zM8 11V8a4 4 0 0 1 8 0v3m-9 7v2m10-2v2" /></svg></span>
+            <span>Home &amp; Living</span>
+          </a>
+          <a class="category-item" href="catalog.html?category=Sports" data-category="Sports">
+            <span class="category-icon sports-icon"><svg viewBox="0 0 24 24"><path d="m3 15 5-8 4 2 8-2 2 4-9 7-7 1-3-4Z" /><path d="m8 7 2-3m2 5 3 5m-6-4 3 5" /></svg></span>
+            <span>Sports</span>
+          </a>
+          <a class="category-item" href="catalog.html?category=All" data-category="All">
+            <span class="category-icon more-icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1" /><rect x="14" y="4" width="6" height="6" rx="1" /><rect x="4" y="14" width="6" height="6" rx="1" /><rect x="14" y="14" width="6" height="6" rx="1" /></svg></span>
+            <span>More</span>
+          </a>
+        </section>
+
+        <section class="promo-grid" id="deals" aria-label="Store promotions">
+          <a class="promo-card flash-promo" href="#products">
+            <div><strong>Flash Sale</strong><span>Limited time deals</span><em>Up to 70% Off</em><b class="countdown" id="countdown">02 : 45 : 10</b></div>
+            <img src="images/promo-bag.jpg" alt="" />
+          </a>
+          <a class="promo-card shipping-promo" href="#products">
+            <div><strong>Free Shipping</strong><span>On orders over $50</span><em>Shop now <span aria-hidden="true">→</span></em></div>
+            <img src="images/promo-box.jpg" alt="" />
+          </a>
+          <a class="promo-card arrival-promo" href="#products">
+            <div><strong>New Arrivals</strong><span>Check out the latest<br />trends</span><em>Shop now <span aria-hidden="true">→</span></em></div>
+            <img src="images/promo-sunglasses.jpg" alt="" />
+          </a>
+        </section>
+
+        <section class="product-section" id="products">
+          <div class="section-heading">
+            <div><h2>Best Deals for You</h2><p class="section-subtitle">Handpicked favorites at lovely prices</p></div>
+            <button class="text-button" type="button" data-view="best">View All <span>→</span></button>
+          </div>
+          <div class="product-grid" id="best-products" aria-live="polite"></div>
+          <div class="carousel-dots" aria-label="Product carousel pages"><button class="current" aria-label="Page 1"></button><button aria-label="Page 2"></button><button aria-label="Page 3"></button><button aria-label="Page 4"></button></div>
+        </section>
+
+        <section class="product-section recommended-section" id="collections">
+          <div class="section-heading">
+            <div><h2>Recommended for You</h2><p class="section-subtitle">Picked just for your style</p></div>
+            <button class="text-button" type="button" data-view="recommended">View All <span>→</span></button>
+          </div>
+          <div class="product-grid" id="recommended-products" aria-live="polite"></div>
+        </section>
+
+        <section class="trust-strip" aria-label="Our promises">
+          <div><span class="trust-icon shield-icon">✓</span><span><strong>Sample Catalog</strong><small>Example products &amp; prices</small></span></div>
+          <div><span class="trust-icon return-icon">↻</span><span><strong>Browser Cart</strong><small>Saved on this device</small></span></div>
+          <div><span class="trust-icon support-icon">♧</span><span><strong>Demo Checkout</strong><small>No payment collected</small></span></div>
+          <div><span class="trust-icon star-icon">☆</span><span><strong>Order Preview</strong><small>Not sent to a store</small></span></div>
+        </section>
+        <footer class="mobile-footer">© 2026 House of Eloria · Made for your everyday</footer>
+      </main>
+
+      <aside class="right-rail" aria-label="Recommendations">
+        <section class="rail-section suggestions-section">
+          <div class="rail-heading"><h2>You might also like</h2><button class="subtle-arrow" aria-label="More recommendations">›</button></div>
+          <div id="suggestions"></div>
+        </section>
+
+        <section class="rail-section recently-section">
+          <h2>Recently Viewed</h2>
+          <div class="recent-items" id="recent-items" aria-live="polite"></div>
+        </section>
+
+        <a class="club-card" href="#club">
+          <div><strong>Explore House of Eloria</strong><span>Browse this sample<br />style collection</span><b>Shop Now <span aria-hidden="true">→</span></b></div>
+          <span class="club-crown" aria-hidden="true">♛</span>
+          <span class="club-bag" aria-hidden="true">✦</span>
+        </a>
+      </aside>
+      </dialog>
+    </div>
+    <dialog class="cart-dialog" id="cart-dialog" aria-labelledby="cart-title">
+      <div class="cart-dialog-content">
+        <header class="cart-dialog-header">
+          <div><span class="settings-kicker">Your selection</span><h2 id="cart-title"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l1 13H4L5 8Z" /><path d="M9 9V6a3 3 0 0 1 6 0v3" /></svg>My Cart <span id="cart-count">(0)</span></h2></div>
+          <div class="cart-dialog-actions"><button class="close-cart" type="button">Clear cart</button><button class="cart-dialog-close" type="button" aria-label="Close cart">×</button></div>
+        </header>
+        <section class="cart-panel" aria-label="Cart items and totals">
+          <div class="cart-items" id="cart-items"></div>
+          <form class="coupon-form" id="coupon-form">
+            <label class="visually-hidden" for="coupon-code">Promo code</label>
+            <input id="coupon-code" type="text" placeholder="Promo Code" />
+            <button type="submit">Apply</button>
+          </form>
+          <div class="cart-totals">
+            <div><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
+            <div class="discount-row"><span>Discount</span><strong id="discount">-$0.00</strong></div>
+            <div><span>Shipping</span><strong class="free-shipping" id="shipping">Free</strong></div>
+            <div class="total-row"><span>Total</span><strong id="total">$0.00</strong></div>
+          </div>
+          <button class="checkout-button" id="checkout-button" type="button">
+            <svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2" /></svg>
+            <span>Checkout (<span id="checkout-count">0</span>)</span><span aria-hidden="true">›</span>
+          </button>
+          <div class="payment-methods"><span>Demo only · Payment is not collected</span></div>
+        </section>
+      </div>
+    </dialog>
+    <dialog class="product-dialog" id="product-dialog" aria-labelledby="product-detail-name">
+      <div class="product-dialog-content" id="product-detail"></div>
+    </dialog>
+    <dialog class="settings-dialog" id="settings-dialog" aria-labelledby="settings-title">
+      <form method="dialog" class="settings-panel">
+        <header class="settings-header">
+          <div><span class="settings-kicker">Make it yours</span><h2 id="settings-title">App settings</h2><p>Personalize your House of Eloria experience.</p></div>
+          <button class="settings-close" value="close" aria-label="Close app settings">×</button>
+        </header>
+        <section class="settings-group" aria-labelledby="appearance-heading">
+          <h3 id="appearance-heading">Appearance</h3>
+          <label class="setting-row" for="setting-theme"><span><strong>Color theme</strong><small>Choose the storefront look</small></span><select id="setting-theme" data-setting="theme"><option value="dark">Midnight purple</option><option value="light">Light</option></select></label>
+          <label class="setting-row setting-toggle" for="setting-compact"><span><strong>Compact product cards</strong><small>Show more products at once</small></span><input id="setting-compact" type="checkbox" data-setting="compactCards" /></label>
+          <label class="setting-row setting-toggle" for="setting-reduced-motion"><span><strong>Reduce motion</strong><small>Minimize animated transitions</small></span><input id="setting-reduced-motion" type="checkbox" data-setting="reducedMotion" /></label>
+        </section>
+        <section class="settings-group" aria-labelledby="content-heading">
+          <h3 id="content-heading">Storefront content</h3>
+          <label class="setting-row setting-toggle" for="setting-ratings"><span><strong>Product ratings</strong><small>Show review scores on products</small></span><input id="setting-ratings" type="checkbox" data-setting="showRatings" checked /></label>
+          <label class="setting-row setting-toggle" for="setting-discounts"><span><strong>Sale badges</strong><small>Show discount labels on products</small></span><input id="setting-discounts" type="checkbox" data-setting="showSaleBadges" checked /></label>
+        </section>
+        <section class="settings-group" aria-labelledby="motion-heading">
+          <h3 id="motion-heading">Featured slideshow</h3>
+          <label class="setting-row setting-toggle" for="setting-autoplay"><span><strong>Auto-rotate slides</strong><small>Advance every 2 seconds</small></span><input id="setting-autoplay" type="checkbox" data-setting="autoRotate" checked /></label>
+        </section>
+        <footer class="settings-footer"><button class="settings-reset" id="reset-settings" type="button">Restore defaults</button><button class="settings-done" value="close">Done</button></footer>
+      </form>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

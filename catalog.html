@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#100b18" />
+    <meta name="description" content="Shop the House of Eloria collection by category." />
+    <title>Shop Categories — House of Eloria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="visit.js" defer></script>
+    <script src="catalog-data.js" defer></script>
+    <script src="catalog.js" defer></script>
+  </head>
+  <body class="dark-mode catalog-page">
+    <div class="catalog-shell">
+      <header class="catalog-header">
+        <a class="brand" href="index.html" aria-label="House of Eloria home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1V10Z" /><path d="M3 10 12 3l9 7" /></svg>
+          </span>
+          <span class="brand-name">House of <span class="brand-light">Eloria</span></span>
+        </a>
+        <div class="catalog-header-actions">
+          <a class="catalog-back-link" href="index.html">← Back to the store</a>
+          <a class="catalog-cart-link" href="index.html?cart=open#home" aria-label="Open your cart">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l1 13H4L5 8Z" /><path d="M9 9V6a3 3 0 0 1 6 0v3" /></svg>
+            <span>My cart</span><strong id="catalog-cart-count">0</strong>
+          </a>
+        </div>
+      </header>
+
+      <main class="catalog-main">
+        <nav class="catalog-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span aria-hidden="true">/</span><span id="catalog-breadcrumb-category">All products</span>
+        </nav>
+        <section class="catalog-heading">
+          <div>
+            <span class="settings-kicker">The House of Eloria edit</span>
+            <h1 id="catalog-title">Shop all items</h1>
+            <p id="catalog-description">Find something lovely for every part of your day.</p>
+          </div>
+          <label class="catalog-sort-label" for="catalog-sort">Sort by
+            <select id="catalog-sort">
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: Low to high</option>
+              <option value="price-high">Price: High to low</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+          </label>
+        </section>
+        <nav class="catalog-category-links" aria-label="Browse more categories">
+          <a href="catalog.html?category=All" data-category-link="All">All items</a>
+          <a href="catalog.html?category=Fashion" data-category-link="Fashion">Fashion</a>
+          <a href="catalog.html?category=Beauty" data-category-link="Beauty">Beauty</a>
+          <a href="catalog.html?category=Electronics" data-category-link="Electronics">Electronics</a>
+          <a href="catalog.html?category=Home%20%26%20Living" data-category-link="Home & Living">Home &amp; Living</a>
+          <a href="catalog.html?category=Sports" data-category-link="Sports">Sports</a>
+        </nav>
+        <div class="catalog-results-line">
+          <p id="catalog-results-count" role="status" aria-live="polite"></p>
+          <p class="catalog-demo-note">Sample catalog · no payment collected</p>
+        </div>
+        <p class="catalog-feedback" id="catalog-feedback" role="status" aria-live="polite" hidden></p>
+        <section class="catalog-grid" id="catalog-grid" aria-label="Products"></section>
+      </main>
+      <footer class="account-footer">House of Eloria · Thoughtful finds for your everyday</footer>
+    </div>
+    <div class="toast" id="catalog-toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

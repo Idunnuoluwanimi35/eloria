@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#100b18" />
+    <meta name="description" content="Create or access your House of Eloria demo profile." />
+    <title>Your Account — House of Eloria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="account.js" defer></script>
+  </head>
+  <body class="dark-mode account-page">
+    <div class="account-shell">
+      <header class="account-topbar">
+        <a class="brand" href="index.html" aria-label="House of Eloria home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1V10Z" /><path d="M3 10 12 3l9 7" /></svg>
+          </span>
+          <span class="brand-name">House of <span class="brand-light">Eloria</span></span>
+        </a>
+        <a class="account-back-link" href="index.html">← Back to the store</a>
+      </header>
+
+      <main class="account-layout">
+        <section class="account-intro">
+          <span class="settings-kicker">Your House of Eloria profile</span>
+          <h1>A little more <span>you.</span></h1>
+          <p>Save your details and profile picture on this device for a more personal shopping experience.</p>
+          <div class="account-perk"><span aria-hidden="true">✦</span><span><strong>Your profile, your way</strong><small>Your name and photo appear in the storefront header.</small></span></div>
+          <div class="account-demo-note">
+            Demo account only. Your profile stays in this browser; do not use a password you use elsewhere. This is not a secure, server-backed account.
+          </div>
+        </section>
+
+        <section class="account-card" aria-labelledby="account-heading">
+          <div class="account-card-heading">
+            <span class="settings-kicker">Welcome to Eloria</span>
+            <h2 id="account-heading">Sign in or create an account</h2>
+            <p id="account-description">Your account session is saved for this browser tab.</p>
+          </div>
+
+          <p class="account-message" id="account-message" role="status" aria-live="polite"></p>
+
+          <section class="account-profile" id="account-profile" aria-label="Your profile" hidden>
+            <img class="account-avatar" id="account-avatar" src="images/profile.jpg" alt="Your profile picture" />
+            <h3 id="account-name"></h3>
+            <dl class="account-details">
+              <div><dt>Email</dt><dd id="account-email"></dd></div>
+              <div><dt>Phone</dt><dd id="account-phone"></dd></div>
+            </dl>
+            <div class="account-profile-actions">
+              <a class="account-primary-button" href="index.html">Continue shopping</a>
+              <button class="account-secondary-button" id="account-signout" type="button">Sign Out</button>
+            </div>
+          </section>
+
+          <section class="account-signed-out" id="account-signed-out" hidden>
+            <span class="signed-out-mark" aria-hidden="true">✓</span>
+            <h3>You’re signed out</h3>
+            <p>Your profile is saved on this browser. You can sign in again whenever you’re ready.</p>
+            <button class="account-primary-button" type="button" data-account-mode="signin">Sign In</button>
+            <a class="account-text-link" href="index.html">Return to the store</a>
+          </section>
+
+          <div class="account-switch" id="account-switch" role="group" aria-label="Choose sign in or sign up">
+            <button class="is-selected" type="button" data-account-mode="signin" aria-pressed="true">Sign In</button>
+            <button type="button" data-account-mode="signup" aria-pressed="false">Sign Up</button>
+          </div>
+
+          <form class="account-form" id="signin-form" novalidate>
+            <label class="account-field" for="signin-email">Email address
+              <input id="signin-email" name="email" type="email" autocomplete="email" required />
+            </label>
+            <label class="account-field" for="signin-password">Password
+              <input id="signin-password" name="password" type="password" autocomplete="current-password" required />
+            </label>
+            <button class="account-primary-button" type="submit">Sign In</button>
+            <p class="account-form-footnote">New to Eloria? <button type="button" class="account-text-link" data-account-mode="signup">Create an account</button></p>
+          </form>
+
+          <form class="account-form" id="signup-form" hidden novalidate>
+            <label class="account-field" for="signup-name">Full name
+              <input id="signup-name" name="name" type="text" autocomplete="name" maxlength="80" required />
+            </label>
+            <label class="account-field" for="signup-email">Email address
+              <input id="signup-email" name="email" type="email" autocomplete="email" required />
+            </label>
+            <label class="account-field" for="signup-phone">Phone number
+              <input id="signup-phone" name="phone" type="tel" autocomplete="tel" maxlength="30" required />
+            </label>
+            <label class="account-field" for="signup-password">Create a password
+              <input id="signup-password" name="password" type="password" autocomplete="new-password" required />
+              <small class="password-feedback" id="password-feedback" role="status" aria-live="polite" hidden></small>
+            </label>
+            <label class="account-field" for="signup-avatar">Profile picture
+              <input id="signup-avatar" name="avatar" type="file" accept="image/*" required />
+              <small>Choose an image up to 5 MB. It will be resized before saving.</small>
+            </label>
+            <img class="account-avatar-preview" id="avatar-preview" src="images/profile.jpg" alt="Selected profile picture preview" hidden />
+            <button class="account-primary-button" type="submit">Create Account</button>
+            <p class="account-form-footnote">Already registered? <button type="button" class="account-text-link" data-account-mode="signin">Sign in</button></p>
+          </form>
+        </section>
+      </main>
+      <footer class="account-footer">House of Eloria · A local storefront demo</footer>
+    </div>
+  </body>
+</html>
